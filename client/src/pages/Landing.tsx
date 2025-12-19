@@ -148,7 +148,7 @@ export default function Landing() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-primary leading-[1.1] tracking-tight mb-8" style={{ fontFamily: 'Inter, sans-serif' }}>
               Business Expansion.
               <br />
-              <span className="text-muted-foreground">Investment Strategy.</span>
+              <span className="text-accent">Investment Strategy.</span>
               <br />
               Global Mobility.
             </h1>

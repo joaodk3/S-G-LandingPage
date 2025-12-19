@@ -5,33 +5,33 @@
 @tailwind utilities;
 
 :root {
-  /* Deep Navy & Slate Gray Palette */
+  /* Dark Blue & Yellow Corporate Palette */
   --background: 210 20% 98%;
-  --foreground: 222 47% 11%;
+  --foreground: 220 60% 15%;
 
-  /* Primary: Deep Navy */
-  --primary: 222 47% 11%;
-  --primary-foreground: 210 40% 98%;
+  /* Primary: Dark Navy Blue */
+  --primary: 220 60% 20%;
+  --primary-foreground: 48 100% 96%;
 
-  /* Secondary: Slate Blue/Gray */
-  --secondary: 215 16% 47%;
-  --secondary-foreground: 210 40% 98%;
+  /* Secondary: Lighter Navy */
+  --secondary: 220 40% 35%;
+  --secondary-foreground: 48 100% 96%;
 
-  /* Accent: Subtle Gold/Bronze for luxury touch */
-  --accent: 35 30% 50%;
-  --accent-foreground: 210 40% 98%;
+  /* Accent: Golden Yellow */
+  --accent: 45 100% 51%;
+  --accent-foreground: 220 60% 15%;
 
-  --muted: 210 40% 96%;
-  --muted-foreground: 215 16% 47%;
+  --muted: 210 30% 95%;
+  --muted-foreground: 220 20% 45%;
 
   --destructive: 0 84% 60%;
   --destructive-foreground: 210 40% 98%;
 
-  --border: 214 32% 91%;
-  --input: 214 32% 91%;
-  --ring: 222 47% 11%;
+  --border: 220 20% 88%;
+  --input: 220 20% 88%;
+  --ring: 220 60% 20%;
 
-  --radius: 0rem; /* Sharp edges for corporate feel */
+  --radius: 0.25rem;
 
   --font-sans: 'Inter', sans-serif;
   --font-display: 'Playfair Display', serif;
