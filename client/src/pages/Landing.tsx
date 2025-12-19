@@ -66,7 +66,7 @@ export default function Landing() {
               {/* Business Logo */}
               <a href="#" className="flex items-center gap-2.5 group">
                 <span className="text-2xl font-semibold text-primary" style={{ fontFamily: 'Inter, sans-serif', letterSpacing: '-0.03em' }}>
-                  S<span className="text-amber-600">&</span>G
+                  S&G
                 </span>
                 <span className="hidden sm:block text-sm font-medium text-primary/80 tracking-tight" style={{ fontFamily: 'Inter, sans-serif' }}>
                   Global Advisors
@@ -90,7 +90,7 @@ export default function Landing() {
               ))}
               <ScrollLink to="contact" smooth={true} duration={800} offset={-64}>
                 <Button className="bg-primary hover:bg-primary/90 text-white px-6 text-sm font-medium tracking-wide">
-                  Get in Touch
+                  Contact Us
                 </Button>
               </ScrollLink>
             </div>
@@ -406,7 +406,7 @@ export default function Landing() {
             <div>
               <a href="#" className="flex items-center gap-2.5 mb-4">
                 <span className="text-xl font-semibold text-white" style={{ fontFamily: 'Inter, sans-serif', letterSpacing: '-0.03em' }}>
-                  S<span className="text-amber-500">&</span>G
+                  S&G
                 </span>
                 <span className="text-sm font-medium text-white/70 tracking-tight" style={{ fontFamily: 'Inter, sans-serif' }}>
                   Global Advisors
