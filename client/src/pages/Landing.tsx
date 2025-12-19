@@ -6,6 +6,7 @@ import { useSubmitInquiry } from "@/hooks/use-contact";
 import { ServiceCard } from "@/components/ServiceCard";
 import { motion } from "framer-motion";
 import { Link as ScrollLink } from "react-scroll";
+import aboutImage from "@assets/generated_images/modern_executive_boardroom_cityscape.png";
 import { 
   Globe, 
   Building2, 
@@ -177,19 +178,13 @@ export default function Landing() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative h-[400px] bg-slate-100 overflow-hidden"
+              className="relative h-[400px] overflow-hidden"
             >
-              {/* Abstract decorative element representing structure and clarity */}
-              <div className="absolute inset-0 bg-primary/5"></div>
-              <div className="absolute top-0 right-0 w-2/3 h-full bg-slate-200/50 transform skew-x-12 translate-x-16"></div>
-              
-              {/* Corporate "office" feel without stock photo - using typography and shapes */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                 <div className="text-center p-8 border border-primary/10 bg-white/50 backdrop-blur-sm max-w-sm">
-                    <span className="block text-6xl font-display font-bold text-primary/10 mb-2">S&G</span>
-                    <span className="text-sm font-medium text-primary uppercase tracking-widest">Global Advisors</span>
-                 </div>
-              </div>
+              <img 
+                src={aboutImage} 
+                alt="Modern executive boardroom with panoramic city view" 
+                className="w-full h-full object-cover"
+              />
             </motion.div>
           </div>
         </div>
