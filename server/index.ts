@@ -1,3 +1,7 @@
+// Load environment variables from .env file (if it exists)
+// This is safe to call even if .env doesn't exist
+import "dotenv/config";
+
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
@@ -85,14 +89,11 @@ app.use((req, res, next) => {
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
   const port = parseInt(process.env.PORT || "5000", 10);
-  httpServer.listen(
-    {
-      port,
-      host: "0.0.0.0",
-      reusePort: true,
-    },
-    () => {
-      log(`serving on port ${port}`);
-    },
-  );
+  
+  // Use localhost for development, 0.0.0.0 for production/container environments
+  const host = process.env.NODE_ENV === "production" ? "0.0.0.0" : "localhost";
+  
+  httpServer.listen(port, host, () => {
+    log(`serving on ${host}:${port}`);
+  });
 })();

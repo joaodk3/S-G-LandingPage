@@ -39,6 +39,7 @@ export default function Landing() {
     defaultValues: {
       name: "",
       email: "",
+      phone: "",
       company: "",
       message: "",
     },
@@ -267,7 +268,7 @@ export default function Landing() {
             <ServiceCard
               title="Automation & Systems Consulting"
               description="Building modern infrastructure for fast-growing companies to streamline workflows."
-              subtext="CRM, Workflow Automation, AI-Driven Docs"
+              subtext="CRM, Workflow Automation, AI Implementation"
               icon={Cpu}
               delay={0.4}
             />
@@ -348,6 +349,20 @@ export default function Landing() {
                         <FormLabel className="text-primary/80 text-sm font-medium">Email Address</FormLabel>
                         <FormControl>
                           <Input placeholder="john@company.com" className="bg-slate-50 border-slate-200 text-primary h-11 focus:ring-primary/20" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="phone"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-primary/80 text-sm font-medium">Phone Number (Optional)</FormLabel>
+                        <FormControl>
+                          <Input placeholder="+1 (555) 123-4567" className="bg-slate-50 border-slate-200 text-primary h-11 focus:ring-primary/20" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
