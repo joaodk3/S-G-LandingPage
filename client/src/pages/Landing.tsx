@@ -180,6 +180,32 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* Metrics Section */}
+      <section className="py-16 md:py-20 bg-white border-b border-border/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="grid grid-cols-3 gap-8 md:gap-16 text-center"
+          >
+            <div>
+              <p className="text-3xl md:text-4xl font-semibold text-primary" style={{ fontFamily: 'Inter, sans-serif' }}>23</p>
+              <p className="text-sm text-muted-foreground mt-2">Projects</p>
+            </div>
+            <div>
+              <p className="text-3xl md:text-4xl font-semibold text-primary" style={{ fontFamily: 'Inter, sans-serif' }}>5</p>
+              <p className="text-sm text-muted-foreground mt-2">Countries</p>
+            </div>
+            <div>
+              <p className="text-3xl md:text-4xl font-semibold text-primary" style={{ fontFamily: 'Inter, sans-serif' }}>$25M</p>
+              <p className="text-sm text-muted-foreground mt-2">Capital Advised</p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* About Section */}
       <section id="about" className="py-24 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
