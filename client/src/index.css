@@ -5,31 +5,31 @@
 @tailwind utilities;
 
 :root {
-  /* Dark Blue & Yellow Corporate Palette */
-  --background: 210 20% 98%;
-  --foreground: 220 60% 15%;
+  /* Dark Blue & White Professional Palette */
+  --background: 0 0% 100%;
+  --foreground: 222 47% 11%;
 
-  /* Primary: Dark Navy Blue */
-  --primary: 220 60% 20%;
-  --primary-foreground: 48 100% 96%;
+  /* Primary: Deep Navy Blue */
+  --primary: 222 47% 11%;
+  --primary-foreground: 0 0% 100%;
 
-  /* Secondary: Lighter Navy */
-  --secondary: 220 40% 35%;
-  --secondary-foreground: 48 100% 96%;
+  /* Secondary: Slate Blue */
+  --secondary: 215 25% 27%;
+  --secondary-foreground: 0 0% 100%;
 
-  /* Accent: Golden Yellow */
-  --accent: 45 100% 51%;
-  --accent-foreground: 220 60% 15%;
+  /* Accent: Deep Blue (subtle variation) */
+  --accent: 220 70% 45%;
+  --accent-foreground: 0 0% 100%;
 
-  --muted: 210 30% 95%;
-  --muted-foreground: 220 20% 45%;
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 20% 45%;
 
   --destructive: 0 84% 60%;
-  --destructive-foreground: 210 40% 98%;
+  --destructive-foreground: 0 0% 100%;
 
-  --border: 220 20% 88%;
-  --input: 220 20% 88%;
-  --ring: 220 60% 20%;
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --ring: 222 47% 11%;
 
   --radius: 0.25rem;
 
