@@ -54,6 +54,7 @@ export default function Landing() {
   const navLinks = [
     { name: "About", to: "about" },
     { name: "Services", to: "services" },
+    { name: "International Founders Program", to: "/founders-program", external: true },
     { name: "Contact", to: "contact" },
   ];
 
@@ -78,18 +79,31 @@ export default function Landing() {
             
             {/* Desktop Nav */}
             <div className="hidden md:flex space-x-10 items-center">
-              {navLinks.map((link) => (
-                <ScrollLink
-                  key={link.name}
-                  to={link.to}
-                  smooth={true}
-                  duration={800}
-                  offset={-64}
-                  className="text-sm font-medium text-muted-foreground hover:text-primary cursor-pointer transition-all duration-300 tracking-wide"
-                >
-                  {link.name}
-                </ScrollLink>
-              ))}
+              {navLinks.map((link) => {
+                if (link.external) {
+                  return (
+                    <a
+                      key={link.name}
+                      href={link.to}
+                      className="text-sm font-medium text-muted-foreground hover:text-primary cursor-pointer transition-all duration-300 tracking-wide"
+                    >
+                      {link.name}
+                    </a>
+                  );
+                }
+                return (
+                  <ScrollLink
+                    key={link.name}
+                    to={link.to}
+                    smooth={true}
+                    duration={800}
+                    offset={-64}
+                    className="text-sm font-medium text-muted-foreground hover:text-primary cursor-pointer transition-all duration-300 tracking-wide"
+                  >
+                    {link.name}
+                  </ScrollLink>
+                );
+              })}
               <ScrollLink to="contact" smooth={true} duration={800} offset={-64}>
                 <Button className="bg-primary hover:bg-primary/90 text-white px-6 text-sm font-medium tracking-wide">
                   Contact Us
@@ -106,22 +120,36 @@ export default function Landing() {
           </div>
         </div>
 
-        {/* Mobile Nav */}
+            {/* Mobile Nav */}
         {isMenuOpen && (
           <div className="md:hidden bg-white border-b border-border">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              {navLinks.map((link) => (
-                <ScrollLink
-                  key={link.name}
-                  to={link.to}
-                  smooth={true}
-                  duration={500}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="block px-3 py-2 text-base font-medium text-foreground hover:bg-muted cursor-pointer"
-                >
-                  {link.name}
-                </ScrollLink>
-              ))}
+              {navLinks.map((link) => {
+                if (link.external) {
+                  return (
+                    <a
+                      key={link.name}
+                      href={link.to}
+                      onClick={() => setIsMenuOpen(false)}
+                      className="block px-3 py-2 text-base font-medium text-foreground hover:bg-muted cursor-pointer"
+                    >
+                      {link.name}
+                    </a>
+                  );
+                }
+                return (
+                  <ScrollLink
+                    key={link.name}
+                    to={link.to}
+                    smooth={true}
+                    duration={500}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block px-3 py-2 text-base font-medium text-foreground hover:bg-muted cursor-pointer"
+                  >
+                    {link.name}
+                  </ScrollLink>
+                );
+              })}
             </div>
           </div>
         )}
