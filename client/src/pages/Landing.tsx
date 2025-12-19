@@ -66,7 +66,7 @@ export default function Landing() {
               {/* Gentle, Delicate Logo */}
               <a href="#" className="flex items-center gap-3 group">
                 <span className="text-xl font-light tracking-wide text-primary" style={{ fontFamily: 'Inter, sans-serif', letterSpacing: '0.02em' }}>
-                  S<span className="text-amber-600">&</span>G
+                  S&G
                 </span>
                 <span className="hidden sm:block h-4 w-px bg-border/60"></span>
                 <span className="hidden sm:block text-[11px] font-normal text-muted-foreground tracking-[0.25em] uppercase" style={{ fontFamily: 'Inter, sans-serif' }}>
@@ -407,7 +407,7 @@ export default function Landing() {
             <div>
               <a href="#" className="flex items-center gap-3 mb-4">
                 <span className="text-xl font-light tracking-wide text-white" style={{ fontFamily: 'Inter, sans-serif', letterSpacing: '0.02em' }}>
-                  S<span className="text-amber-400">&</span>G
+                  S&G
                 </span>
                 <span className="h-4 w-px bg-white/30"></span>
                 <span className="text-[11px] font-normal text-white/60 tracking-[0.25em] uppercase" style={{ fontFamily: 'Inter, sans-serif' }}>
