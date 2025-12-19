@@ -59,31 +59,38 @@ export default function Landing() {
   return (
     <div className="min-h-screen bg-background font-sans">
       {/* Navigation */}
-      <nav className="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-border">
+      <nav className="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-border/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-20 items-center">
+          <div className="flex justify-between h-16 items-center">
             <div className="flex-shrink-0 flex items-center">
-              {/* Logo Typography */}
-              <a href="#" className="font-display font-bold text-2xl tracking-tighter text-primary">
-                S&G <span className="text-muted-foreground font-sans text-sm font-normal tracking-widest ml-1 uppercase">Global Advisors</span>
+              {/* Clean, Sophisticated Logo */}
+              <a href="#" className="flex items-center gap-3 group">
+                <span className="text-2xl font-semibold tracking-tight text-primary" style={{ fontFamily: 'Inter, sans-serif', letterSpacing: '-0.02em' }}>
+                  S&G
+                </span>
+                <span className="hidden sm:block h-5 w-px bg-border"></span>
+                <span className="hidden sm:block text-xs font-medium text-muted-foreground tracking-[0.2em] uppercase" style={{ fontFamily: 'Inter, sans-serif' }}>
+                  Global Advisors
+                </span>
               </a>
             </div>
             
             {/* Desktop Nav */}
-            <div className="hidden md:flex space-x-8 items-center">
+            <div className="hidden md:flex space-x-10 items-center">
               {navLinks.map((link) => (
                 <ScrollLink
                   key={link.name}
                   to={link.to}
                   smooth={true}
-                  duration={500}
-                  className="text-sm font-medium text-muted-foreground hover:text-primary cursor-pointer transition-colors uppercase tracking-wide"
+                  duration={800}
+                  offset={-64}
+                  className="text-sm font-medium text-muted-foreground hover:text-primary cursor-pointer transition-all duration-300 tracking-wide"
                 >
                   {link.name}
                 </ScrollLink>
               ))}
-              <ScrollLink to="contact" smooth={true} duration={500}>
-                <Button className="rounded-none bg-primary hover:bg-primary/90 text-white px-6">
+              <ScrollLink to="contact" smooth={true} duration={800} offset={-64}>
+                <Button className="bg-primary hover:bg-primary/90 text-white px-6 text-sm font-medium tracking-wide">
                   Get in Touch
                 </Button>
               </ScrollLink>
@@ -120,65 +127,87 @@ export default function Landing() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden bg-slate-50">
-        <div className="absolute inset-0 z-0 opacity-[0.03] bg-[radial-gradient(#0f172a_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      <section className="relative pt-28 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-gradient-to-b from-slate-50 to-white">
+        <div className="absolute inset-0 z-0 opacity-[0.02] bg-[radial-gradient(#0f172a_1px,transparent_1px)] [background-size:24px_24px]"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="max-w-3xl"
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary font-display leading-tight tracking-tight mb-8">
-              Business Expansion. <br />
-              <span className="text-slate-500">Investment Strategy.</span> <br />
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-sm font-medium text-muted-foreground tracking-[0.2em] uppercase mb-6"
+            >
+              Strategic Advisory
+            </motion.p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-primary leading-[1.1] tracking-tight mb-8" style={{ fontFamily: 'Inter, sans-serif' }}>
+              Business Expansion.
+              <br />
+              <span className="text-muted-foreground">Investment Strategy.</span>
+              <br />
               Global Mobility.
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-2xl mb-10 font-light">
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mb-12"
+            >
               We help companies, entrepreneurs, and investors expand with clarity, structure, and strategic execution — from market entry to capital readiness.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <ScrollLink to="contact" smooth={true} duration={500}>
-                <Button size="lg" className="rounded-none text-lg px-8 py-6 bg-primary hover:bg-primary/90 w-full sm:w-auto">
-                  Partner with Us <ArrowRight className="ml-2 h-5 w-5" />
+            </motion.p>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
+              <ScrollLink to="contact" smooth={true} duration={800} offset={-64}>
+                <Button size="lg" className="text-base px-8 py-6 bg-primary hover:bg-primary/90 w-full sm:w-auto font-medium">
+                  Partner with Us <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </ScrollLink>
-              <ScrollLink to="services" smooth={true} duration={500}>
-                <Button variant="outline" size="lg" className="rounded-none text-lg px-8 py-6 border-primary/20 hover:bg-primary/5 w-full sm:w-auto">
+              <ScrollLink to="services" smooth={true} duration={800} offset={-64}>
+                <Button variant="outline" size="lg" className="text-base px-8 py-6 border-border hover:bg-muted/50 w-full sm:w-auto font-medium">
                   Explore Services
                 </Button>
               </ScrollLink>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-24 bg-white border-y border-border/40">
+      <section id="about" className="py-24 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              <h2 className="text-sm font-bold text-accent uppercase tracking-widest mb-4">About the Firm</h2>
-              <h3 className="text-4xl font-display font-bold text-primary mb-6">Strategic Guidance for Complex Markets</h3>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              <p className="text-sm font-medium text-muted-foreground tracking-[0.2em] uppercase mb-4">About the Firm</p>
+              <h3 className="text-3xl md:text-4xl font-semibold text-primary mb-8 leading-tight" style={{ fontFamily: 'Inter, sans-serif' }}>
+                Strategic Guidance for Complex Markets
+              </h3>
+              <p className="text-base text-muted-foreground leading-relaxed mb-6">
                 S&G Global Advisors is a boutique consulting firm specializing in international business expansion, investment strategy, and workforce mobility.
               </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-base text-muted-foreground leading-relaxed">
                 We support organizations at every stage — from structuring and compliance to capital formation and operational execution — delivering end-to-end solutions with precision, transparency, and technical depth.
               </p>
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative h-[400px] overflow-hidden"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="relative h-[350px] md:h-[450px] overflow-hidden"
             >
               <img 
                 src={aboutImage} 
@@ -191,12 +220,20 @@ export default function Landing() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-24 bg-slate-50">
+      <section id="services" className="py-24 md:py-32 bg-slate-50/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-sm font-bold text-accent uppercase tracking-widest mb-4">Our Expertise</h2>
-            <h3 className="text-4xl font-display font-bold text-primary">Comprehensive Advisory Services</h3>
-          </div>
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="text-center max-w-2xl mx-auto mb-16"
+          >
+            <p className="text-sm font-medium text-muted-foreground tracking-[0.2em] uppercase mb-4">Our Expertise</p>
+            <h3 className="text-3xl md:text-4xl font-semibold text-primary" style={{ fontFamily: 'Inter, sans-serif' }}>
+              Comprehensive Advisory Services
+            </h3>
+          </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <ServiceCard
@@ -246,47 +283,57 @@ export default function Landing() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 bg-primary text-white relative overflow-hidden">
-        {/* Decorative background elements */}
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-white/5 skew-x-12 translate-x-1/4"></div>
-        
+      <section id="contact" className="py-24 md:py-32 bg-primary text-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16">
-            <div>
-              <h2 className="text-sm font-bold text-accent uppercase tracking-widest mb-4">Contact Us</h2>
-              <h3 className="text-4xl font-display font-bold mb-6">Ready to expand, invest, or build?</h3>
-              <p className="text-xl text-slate-300 leading-relaxed mb-8">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-20">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            >
+              <p className="text-sm font-medium text-white/60 tracking-[0.2em] uppercase mb-4">Contact Us</p>
+              <h3 className="text-3xl md:text-4xl font-semibold mb-6" style={{ fontFamily: 'Inter, sans-serif' }}>
+                Ready to expand, invest, or build?
+              </h3>
+              <p className="text-base text-white/70 leading-relaxed mb-10">
                 S&G Global Advisors provides structured, high-impact consulting tailored to your business goals. Reach out to discuss how we can support your vision.
               </p>
               
-              <div className="space-y-6 text-slate-300">
-                <div className="flex items-start">
-                  <div className="w-12 h-[1px] bg-accent mt-3 mr-4"></div>
-                  <p>Global Market Entry Strategy</p>
+              <div className="space-y-4 text-white/70">
+                <div className="flex items-center gap-4">
+                  <div className="w-1.5 h-1.5 bg-white/40 rounded-full"></div>
+                  <p className="text-sm">Global Market Entry Strategy</p>
                 </div>
-                <div className="flex items-start">
-                  <div className="w-12 h-[1px] bg-accent mt-3 mr-4"></div>
-                  <p>Operational Excellence & Compliance</p>
+                <div className="flex items-center gap-4">
+                  <div className="w-1.5 h-1.5 bg-white/40 rounded-full"></div>
+                  <p className="text-sm">Operational Excellence & Compliance</p>
                 </div>
-                <div className="flex items-start">
-                  <div className="w-12 h-[1px] bg-accent mt-3 mr-4"></div>
-                  <p>Capital & Investment Readiness</p>
+                <div className="flex items-center gap-4">
+                  <div className="w-1.5 h-1.5 bg-white/40 rounded-full"></div>
+                  <p className="text-sm">Capital & Investment Readiness</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="bg-white p-8 md:p-10 shadow-2xl">
-              <h3 className="text-2xl font-bold text-primary mb-6 font-display">Send us a message</h3>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="bg-white p-8 md:p-10"
+            >
+              <h3 className="text-xl font-semibold text-primary mb-6" style={{ fontFamily: 'Inter, sans-serif' }}>Send us a message</h3>
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
                   <FormField
                     control={form.control}
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-primary font-medium">Full Name</FormLabel>
+                        <FormLabel className="text-primary/80 text-sm font-medium">Full Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="John Doe" className="bg-slate-50 border-slate-200 text-primary rounded-none h-12 focus:ring-primary/20" {...field} />
+                          <Input placeholder="John Doe" className="bg-slate-50 border-slate-200 text-primary h-11 focus:ring-primary/20" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -298,9 +345,9 @@ export default function Landing() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-primary font-medium">Email Address</FormLabel>
+                        <FormLabel className="text-primary/80 text-sm font-medium">Email Address</FormLabel>
                         <FormControl>
-                          <Input placeholder="john@company.com" className="bg-slate-50 border-slate-200 text-primary rounded-none h-12 focus:ring-primary/20" {...field} />
+                          <Input placeholder="john@company.com" className="bg-slate-50 border-slate-200 text-primary h-11 focus:ring-primary/20" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -312,9 +359,9 @@ export default function Landing() {
                     name="company"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-primary font-medium">Company (Optional)</FormLabel>
+                        <FormLabel className="text-primary/80 text-sm font-medium">Company (Optional)</FormLabel>
                         <FormControl>
-                          <Input placeholder="Your Company Ltd." className="bg-slate-50 border-slate-200 text-primary rounded-none h-12 focus:ring-primary/20" {...field} />
+                          <Input placeholder="Your Company Ltd." className="bg-slate-50 border-slate-200 text-primary h-11 focus:ring-primary/20" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -326,11 +373,11 @@ export default function Landing() {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-primary font-medium">Message</FormLabel>
+                        <FormLabel className="text-primary/80 text-sm font-medium">Message</FormLabel>
                         <FormControl>
                           <Textarea 
                             placeholder="Tell us about your project or inquiry..." 
-                            className="bg-slate-50 border-slate-200 text-primary rounded-none min-h-[120px] focus:ring-primary/20 resize-none" 
+                            className="bg-slate-50 border-slate-200 text-primary min-h-[100px] focus:ring-primary/20 resize-none" 
                             {...field} 
                           />
                         </FormControl>
@@ -341,25 +388,31 @@ export default function Landing() {
 
                   <Button 
                     type="submit" 
-                    className="w-full h-12 bg-primary hover:bg-primary/90 text-white font-medium rounded-none text-lg transition-all"
+                    className="w-full h-11 bg-primary hover:bg-primary/90 text-white font-medium text-sm transition-all"
                     disabled={submitInquiry.isPending}
                   >
                     {submitInquiry.isPending ? "Sending..." : "Submit Inquiry"}
                   </Button>
                 </form>
               </Form>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-primary text-slate-400 py-12 border-t border-white/10">
+      <footer className="bg-primary text-white/50 py-16 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
-              <a href="#" className="font-display font-bold text-2xl tracking-tighter text-white mb-4 block">
-                S&G <span className="text-slate-400 font-sans text-sm font-normal tracking-widest ml-1 uppercase">Global Advisors</span>
+              <a href="#" className="flex items-center gap-3 mb-4">
+                <span className="text-xl font-semibold tracking-tight text-white" style={{ fontFamily: 'Inter, sans-serif', letterSpacing: '-0.02em' }}>
+                  S&G
+                </span>
+                <span className="h-4 w-px bg-white/20"></span>
+                <span className="text-xs font-medium text-white/50 tracking-[0.15em] uppercase" style={{ fontFamily: 'Inter, sans-serif' }}>
+                  Global Advisors
+                </span>
               </a>
               <p className="text-sm leading-relaxed max-w-xs">
                 Empowering businesses with clarity, structure, and strategy for global success.
@@ -367,40 +420,34 @@ export default function Landing() {
             </div>
             
             <div>
-              <h4 className="text-white font-bold mb-4 uppercase text-sm tracking-wider">Services</h4>
-              <ul className="space-y-2 text-sm">
-                <li><ScrollLink to="services" smooth={true} className="hover:text-white cursor-pointer transition-colors">Business Expansion</ScrollLink></li>
-                <li><ScrollLink to="services" smooth={true} className="hover:text-white cursor-pointer transition-colors">Corporate Structuring</ScrollLink></li>
-                <li><ScrollLink to="services" smooth={true} className="hover:text-white cursor-pointer transition-colors">Capital Advisory</ScrollLink></li>
-                <li><ScrollLink to="services" smooth={true} className="hover:text-white cursor-pointer transition-colors">Due Diligence</ScrollLink></li>
+              <h4 className="text-white font-medium mb-4 text-sm tracking-wide">Services</h4>
+              <ul className="space-y-3 text-sm">
+                <li><ScrollLink to="services" smooth={true} duration={800} offset={-64} className="hover:text-white cursor-pointer transition-colors duration-300">Business Expansion</ScrollLink></li>
+                <li><ScrollLink to="services" smooth={true} duration={800} offset={-64} className="hover:text-white cursor-pointer transition-colors duration-300">Corporate Structuring</ScrollLink></li>
+                <li><ScrollLink to="services" smooth={true} duration={800} offset={-64} className="hover:text-white cursor-pointer transition-colors duration-300">Capital Advisory</ScrollLink></li>
+                <li><ScrollLink to="services" smooth={true} duration={800} offset={-64} className="hover:text-white cursor-pointer transition-colors duration-300">Due Diligence</ScrollLink></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="text-white font-bold mb-4 uppercase text-sm tracking-wider">Contact</h4>
-              <ul className="space-y-2 text-sm">
-                <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-accent rounded-full"></span>
-                  Based in United States
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-accent rounded-full"></span>
-                  Global Reach
-                </li>
-                <li className="mt-4">
-                  <ScrollLink to="contact" smooth={true} className="text-white border-b border-white/30 hover:border-white pb-1 transition-all cursor-pointer">
-                    Contact our team
+              <h4 className="text-white font-medium mb-4 text-sm tracking-wide">Contact</h4>
+              <ul className="space-y-3 text-sm">
+                <li>Based in United States</li>
+                <li>Global Reach</li>
+                <li className="pt-2">
+                  <ScrollLink to="contact" smooth={true} duration={800} offset={-64} className="text-white/80 hover:text-white transition-colors duration-300 cursor-pointer">
+                    Get in touch
                   </ScrollLink>
                 </li>
               </ul>
             </div>
           </div>
           
-          <div className="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs">
+          <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between gap-4 items-center text-xs">
             <p>&copy; {new Date().getFullYear()} S&G Global Advisors. All rights reserved.</p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <div className="flex space-x-6">
+              <a href="#" className="hover:text-white transition-colors duration-300">Privacy Policy</a>
+              <a href="#" className="hover:text-white transition-colors duration-300">Terms of Service</a>
             </div>
           </div>
         </div>
