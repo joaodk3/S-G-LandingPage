@@ -63,13 +63,13 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <div className="flex-shrink-0 flex items-center">
-              {/* Clean, Sophisticated Logo */}
+              {/* Gentle, Delicate Logo */}
               <a href="#" className="flex items-center gap-3 group">
-                <span className="text-2xl font-semibold tracking-tight text-primary" style={{ fontFamily: 'Inter, sans-serif', letterSpacing: '-0.02em' }}>
-                  S&G
+                <span className="text-xl font-light tracking-wide text-primary" style={{ fontFamily: 'Inter, sans-serif', letterSpacing: '0.02em' }}>
+                  S<span className="text-amber-600">&</span>G
                 </span>
-                <span className="hidden sm:block h-5 w-px bg-border"></span>
-                <span className="hidden sm:block text-xs font-medium text-muted-foreground tracking-[0.2em] uppercase" style={{ fontFamily: 'Inter, sans-serif' }}>
+                <span className="hidden sm:block h-4 w-px bg-border/60"></span>
+                <span className="hidden sm:block text-[11px] font-normal text-muted-foreground tracking-[0.25em] uppercase" style={{ fontFamily: 'Inter, sans-serif' }}>
                   Global Advisors
                 </span>
               </a>
@@ -406,11 +406,11 @@ export default function Landing() {
           <div className="grid md:grid-cols-3 gap-12">
             <div>
               <a href="#" className="flex items-center gap-3 mb-4">
-                <span className="text-xl font-semibold tracking-tight text-white" style={{ fontFamily: 'Inter, sans-serif', letterSpacing: '-0.02em' }}>
-                  S&G
+                <span className="text-lg font-light tracking-wide text-white" style={{ fontFamily: 'Inter, sans-serif', letterSpacing: '0.02em' }}>
+                  S<span className="text-amber-500">&</span>G
                 </span>
-                <span className="h-4 w-px bg-white/20"></span>
-                <span className="text-xs font-medium text-white/50 tracking-[0.15em] uppercase" style={{ fontFamily: 'Inter, sans-serif' }}>
+                <span className="h-3.5 w-px bg-white/20"></span>
+                <span className="text-[10px] font-normal text-white/50 tracking-[0.2em] uppercase" style={{ fontFamily: 'Inter, sans-serif' }}>
                   Global Advisors
                 </span>
               </a>
