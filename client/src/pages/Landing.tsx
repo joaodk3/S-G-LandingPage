@@ -4,7 +4,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { insertInquirySchema, type InsertInquiry } from "@shared/schema";
 import { useSubmitInquiry } from "@/hooks/use-contact";
 import { ServiceCard } from "@/components/ServiceCard";
-import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { motion } from "framer-motion";
 import { Link as ScrollLink } from "react-scroll";
 import aboutImage from "@assets/generated_images/modern_executive_boardroom_cityscape.png";
@@ -17,8 +16,7 @@ import {
   FileSearch, 
   Menu, 
   X,
-  ArrowRight,
-  CheckCircle2
+  ArrowRight
 } from "lucide-react";
 import { 
   Form, 
@@ -129,138 +127,57 @@ export default function Landing() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-28 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50/30">
-        {/* Animated background elements */}
-        <div className="absolute inset-0 z-0 opacity-[0.03] bg-[radial-gradient(#0f172a_1px,transparent_1px)] [background-size:32px_32px]"></div>
-        <motion.div 
-          className="absolute top-20 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl"
-          animate={{ 
-            scale: [1, 1.1, 1],
-            opacity: [0.3, 0.5, 0.3]
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div 
-          className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-3xl"
-          animate={{ 
-            scale: [1, 1.2, 1],
-            opacity: [0.2, 0.4, 0.2]
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        />
+      <section className="relative pt-28 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-gradient-to-b from-slate-50 to-white">
+        <div className="absolute inset-0 z-0 opacity-[0.02] bg-[radial-gradient(#0f172a_1px,transparent_1px)] [background-size:24px_24px]"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="max-w-3xl"
+          >
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-sm font-medium text-muted-foreground tracking-[0.2em] uppercase mb-6"
+            >
+              Strategic Advisory
+            </motion.p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-primary leading-[1.1] tracking-tight mb-8" style={{ fontFamily: 'Inter, sans-serif' }}>
+              Business Expansion.
+              <br />
+              <span className="text-muted-foreground">Investment Strategy.</span>
+              <br />
+              Global Mobility.
+            </h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mb-12"
             >
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="inline-flex items-center gap-2 bg-primary/5 border border-primary/10 px-4 py-2 mb-8"
-              >
-                <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
-                <span className="text-xs font-medium text-primary tracking-wide uppercase">Strategic Advisory</span>
-              </motion.div>
-              
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-[1.1] tracking-tight mb-8" style={{ fontFamily: 'Inter, sans-serif' }}>
-                Business Expansion.
-                <br />
-                <span className="text-secondary">Investment Strategy.</span>
-                <br />
-                Global Mobility.
-              </h1>
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-lg text-muted-foreground leading-relaxed max-w-xl mb-10"
-              >
-                We help companies, entrepreneurs, and investors expand with clarity, structure, and strategic execution — from market entry to capital readiness.
-              </motion.p>
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                className="flex flex-col sm:flex-row gap-4 mb-12"
-              >
-                <ScrollLink to="contact" smooth={true} duration={800} offset={-64}>
-                  <Button size="lg" className="text-base px-8 py-6 bg-primary hover:bg-primary/90 w-full sm:w-auto font-medium shadow-lg shadow-primary/20">
-                    Partner with Us <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </ScrollLink>
-                <ScrollLink to="services" smooth={true} duration={800} offset={-64}>
-                  <Button variant="outline" size="lg" className="text-base px-8 py-6 border-border hover:bg-muted/50 w-full sm:w-auto font-medium">
-                    Explore Services
-                  </Button>
-                </ScrollLink>
-              </motion.div>
-              
-              {/* Trust indicators */}
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-                className="flex flex-wrap gap-6 text-sm text-muted-foreground"
-              >
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-primary" />
-                  <span>Global Reach</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-primary" />
-                  <span>Expert Advisors</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-primary" />
-                  <span>Proven Results</span>
-                </div>
-              </motion.div>
-            </motion.div>
-            
-            {/* Hero visual */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.3 }}
-              className="hidden lg:block relative"
+              We help companies, entrepreneurs, and investors expand with clarity, structure, and strategic execution — from market entry to capital readiness.
+            </motion.p>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex flex-col sm:flex-row gap-4"
             >
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg transform rotate-3"></div>
-                <img 
-                  src={aboutImage} 
-                  alt="Global Business Advisory" 
-                  className="relative z-10 w-full h-[500px] object-cover rounded-lg shadow-2xl"
-                />
-                {/* Floating stat card */}
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 1 }}
-                  className="absolute -bottom-6 -left-6 bg-white p-6 shadow-xl border border-border/50 z-20"
-                >
-                  <div className="text-3xl font-bold text-primary mb-1">50+</div>
-                  <div className="text-sm text-muted-foreground">Countries Served</div>
-                </motion.div>
-              </div>
+              <ScrollLink to="contact" smooth={true} duration={800} offset={-64}>
+                <Button size="lg" className="text-base px-8 py-6 bg-primary hover:bg-primary/90 w-full sm:w-auto font-medium">
+                  Partner with Us <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </ScrollLink>
+              <ScrollLink to="services" smooth={true} duration={800} offset={-64}>
+                <Button variant="outline" size="lg" className="text-base px-8 py-6 border-border hover:bg-muted/50 w-full sm:w-auto font-medium">
+                  Explore Services
+                </Button>
+              </ScrollLink>
             </motion.div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Stats Section */}
-      <section className="py-16 bg-primary relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-secondary/20 via-transparent to-transparent"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            <AnimatedCounter end={150} suffix="+" label="Clients Worldwide" />
-            <AnimatedCounter end={50} suffix="+" label="Countries Served" />
-            <AnimatedCounter end={500} prefix="$" suffix="M+" label="Capital Raised" />
-            <AnimatedCounter end={98} suffix="%" label="Client Satisfaction" />
-          </div>
+          </motion.div>
         </div>
       </section>
 
